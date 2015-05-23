@@ -1,8 +1,12 @@
-angular.module('starter.controllers', [])
+angular.module('starter')
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $window) {
   // Form data for the login modal
   $scope.loginData = {};
+  $scope.$on('hello', function(){
+    console.log('howdy');
+    $scope.$emit('burp');
+  });
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -33,7 +37,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+.controller('ListCtrl', function($scope) {
   $scope.playlists = [
     { title: 'wing', id: 1 },
     { title: 'Chill', id: 2 },
@@ -44,5 +48,7 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('ShowCtrl', function($scope, $stateParams) {
+})
+.controller('ProfileCtrl', function($scope, $stateParams) {
 });
